@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>거제중학교 급식 메뉴</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+</head>
+<body style="font-family: 'Jua', sans-serif; background-image: url('https://cdn.pixabay.com/photo/2014/12/11/02/55/cereals-563796_960_720.jpg'); background-repeat: no-repeat; background-size: cover;">
+	<button style="background-image: url('img/fullscreen.png');background-size: cover; border: 0px; width: 3vw; height: 3vw;" onclick="document.documentElement.requestFullscreen()"></button>
+	<center>
+    	<input id="date" style="border-radius: 3vw;width: 20vw; height: 4vw; font-size: 2vw; font-family: 'Jua', sans-serif;" type="date">
+    	<button onclick="menu()" style="color: #fff;font-size: 2vw;font-family: 'Jua', sans-serif;width: 20vw; height: 7.5vw; background-color: #0000CF; border: 0px; border-radius: 100vw;">급식 보기</button>
+    	<div style="color: #fff;width: 90vw; border-radius: 5vw; background-color: rgba(0,0,0,0.3);height: 30vw;"><h1 class="menu" id="menu" style="font-family: 'Jua', sans-serif;"><span style='font-size: 5vw;'>급식 메뉴<br></span></h1></div>
+		
+	</center>
+</body>
+<script>
+    function menu() {
+        const day = document.getElementById('date').value.replace(/[-]/g, '');
+	const url =
+		'https://open.neis.go.kr/hub/mealServiceDietInfo?ATPT_OFCDC_SC_CODE=' +
+		'S10' + // 학교 코드
+		'&SD_SCHUL_CODE=' +
+		'9111056' + // 지역 코드
+		'&MLSV_YMD=' +
+		day +
+		'&key=0329ec2eb15f4888b665ab2b92887d4a'; // 키값
+	const request = new XMLHttpRequest();
+	request.open('GET', url, true);
+	request.onload = function () {
+		var menu =
+				"<span style='font-size: 5vw;'>급식 메뉴<br></span>" +
+				request.responseText
+					.slice(0, -731)
+					.slice(649)
+					.replace(/\./g, '')
+					.replace(/[0-9]/g, '');
+
+		document.getElementById('menu').innerHTML = menu;
+	};
+	request.send();
+}
+</script>
+<script>
+    function findmenu() {
+		let date = new Date();
+		var year = date.getFullYear();
+		var month = date.getMonth() + 1;
+		var day = date.getDay();
+		
+	const url =
+		'https://open.neis.go.kr/hub/mealServiceDietInfo?ATPT_OFCDC_SC_CODE=' +
+		'S10' + // 학교 코드
+		'&SD_SCHUL_CODE=' +
+		'9111056' + // 지역 코드
+		'&MLSV_YMD=' +
+		day +
+		'&key=0329ec2eb15f4888b665ab2b92887d4a'; // 키값
+	const request = new XMLHttpRequest();
+	request.open('GET', url, true);
+	request.onload = function () {
+		var menu =
+				"<span style='font-size: 5vw;'>급식 메뉴<br></span>" +
+				request.responseText
+					.slice(0, -731)
+					.slice(649)
+					.replace(/\./g, '')
+					.replace(/[0-9]/g, '');
+
+		document.getElementById('menu').innerHTML = menu;
+	};
+	request.send();
+}
+</script>
+</html>
