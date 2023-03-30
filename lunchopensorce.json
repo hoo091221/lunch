@@ -1,0 +1,26 @@
+
+    function menu() {
+        const day = document.getElementById('date').value.replace(/[-]/g, '');
+	const url =
+		'https://open.neis.go.kr/hub/mealServiceDietInfo?ATPT_OFCDC_SC_CODE=' +
+		'S10' + // 학교 코드
+		'&SD_SCHUL_CODE=' +
+		'9111056' + // 지역 코드
+		'&MLSV_YMD=' +
+		day +
+		'&key=0329ec2eb15f4888b665ab2b92887d4a'; // 키값
+	const request = new XMLHttpRequest();
+	request.open('GET', url, true);
+	request.onload = function () {
+		var menu =
+				"<span style='font-size: 5vw;'>급식 메뉴<br></span>" +
+				request.responseText
+					.slice(0, -731)
+					.slice(649)
+					.replace(/\./g, '')
+					.replace(/[0-9]/g, '');
+
+		document.getElementById('menu').innerHTML = menu;
+	};
+	request.send();
+}
