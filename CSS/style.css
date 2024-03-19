@@ -47,14 +47,14 @@ body {
 
 .subtitle {
     font-family: 'SejonghospitalBold';
-    font-size: 3.5rem;
     color: white;
-    margin-right: 10rem;
+    margin-right: 30vw;
     padding-top: 40vh;
+    font-size: 3rem;
 }
 
 #date {
-    border-radius: 3vw;
+    /* border-radius: 3vw; */
     font-family: 'SejonghospitalBold';
     padding: 10px 25px;
     width: 300px;
@@ -175,28 +175,68 @@ body {
     padding: 3vw;
 }
 
-.menu-content {
+.c {
     float: left;
-    width: 35vw;
-    height: 70vh;
+    box-shadow: 0 1em 1em rgba(0, 0, 255, 0.5);
+    transition: all 1s ease;
     background: #fff;
     margin: 3vw;
     margin-top: 1vw;
-    border-radius: 2em;
-    box-shadow: 0 1em 1em rgba(0, 0, 255, 0.5);
+}
+
+.menu-content {
+    width: 35vw;
+    height: 70vh;
 }
 
 .pos-content {
-    float: left;
     width: 50vw;
     height: 70vh;
-    background: #fff;
-    margin: 3vw;
-    margin-top: 1vw;
-    border-radius: 2em;
-    box-shadow: 0 1em 1em rgba(0, 0, 255, 0.5);
 }
 
 table {
     margin-top: 3.5em;
+}
+
+.splash-text,
+.splash-p {
+    opacity: 0;
+    transform: translateY(-100px);
+    transition: opacity 1s, transform 1s;
+    z-index: 1;
+}
+
+.c-div {
+    width: 96w;
+}
+
+.menu-content:hover,
+.pos-content:hover {
+    box-shadow: 0 1em 1em rgba(0, 179, 255, 0.5);
+}
+
+@media (width < 700px) {
+    /* 모바일 뷰포트 */
+    #date {
+        width: 50vw;
+    }
+    .menu-content,
+    .pos-content {
+        width: 90vw;
+    }
+    .c-div {
+        width: 95vw;
+    }
+    .content {
+        height: 170vh;
+    }
+}
+
+@media (width < 1000px) {
+    .title {
+        font-size: 10vw;
+    }
+    .subtitle {
+        font-size: 5vw;
+    }
 }
