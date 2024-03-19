@@ -116,28 +116,28 @@
 <!-- lunch.js -->
 
 <script>
-    function readTextFile(file) {
-        var rawFile = new XMLHttpRequest();
-        rawFile.open("GET", file, false);
-        rawFile.onreadystatechange = function() {
-            if (rawFile.readyState === 4) {
-                if (rawFile.status === 200 || rawFile.status == 0) {
-                    var allText = rawFile.responseText;
-                    alert(allText);
-                }
-            }
-        }
-        rawFile.send(null);
-    }
+    // function readTextFile(file) {
+    //     var rawFile = new XMLHttpRequest();
+    //     rawFile.open("GET", file, false);
+    //     rawFile.onreadystatechange = function() {
+    //         if (rawFile.readyState === 4) {
+    //             if (rawFile.status === 200 || rawFile.status == 0) {
+    //                 var allText = rawFile.responseText;
+    //                 // alert(allText);
+    //             }
+    //         }
+    //     }
+    //     rawFile.send(null);
+    // }
 
-    readTextFile("./school.csv").on('data', (row) => {
-        // CSV 데이터 처리를 위한 코드 작성
-        // 'b' 열 값이 'apple'을 포함하는 행 찾기
-        const filteredRows = results.filter(row => row['b'].includes('apple'));
-        // 'b' 열 값이 'apple'을 포함하는 행의 'c' 열 데이터 가져오기
-        const columnCData = filteredRows.map(row => row['c']);
-        alert(); // 클라이언트에 데이터 전송
-    })
+    // readTextFile("./school.csv").on('data', (row) => {
+    //     // CSV 데이터 처리를 위한 코드 작성
+    //     // 'b' 열 값이 'apple'을 포함하는 행 찾기
+    //     const filteredRows = results.filter(row => row['b'].includes('apple'));
+    //     // 'b' 열 값이 'apple'을 포함하는 행의 'c' 열 데이터 가져오기
+    //     const columnCData = filteredRows.map(row => row['c']);
+    //     // alert(); // 클라이언트에 데이터 전송
+    // })
 
     function menu() {
         const day = document.getElementById('date').value.replace(/[-]/g, '');
