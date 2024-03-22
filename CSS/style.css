@@ -1,19 +1,15 @@
-@font-face {
+.title {
     font-family: 'SejonghospitalBold';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2312-1@1.1/SejonghospitalBold.woff2') format('woff2');
-    font-weight: 700;
-    font-style: normal;
+    font-size: 5rem;
+    color: white;
 }
 
-body {
+.subtitle {
     font-family: 'SejonghospitalBold';
-    margin: 0px;
-    height: 0px;
-    -ms-overflow-style: none;
-}
-
-::-webkit-scrollbar {
-    display: none;
+    color: white;
+    margin-right: 30vw;
+    padding-top: 40vh;
+    font-size: 3rem;
 }
 
 .bgimg {
@@ -33,24 +29,28 @@ body {
     background: rgba(0, 0, 0, 0.7);
 }
 
+@font-face {
+    font-family: 'SejonghospitalBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2312-1@1.1/SejonghospitalBold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+body {
+    font-family: 'SejonghospitalBold';
+    margin: 0px;
+    height: 0px;
+    -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
 .content {
     width: 100vw;
     height: 100vh;
     background-color: #FFEEDD;
-}
-
-.title {
-    font-family: 'SejonghospitalBold';
-    font-size: 5rem;
-    color: white;
-}
-
-.subtitle {
-    font-family: 'SejonghospitalBold';
-    color: white;
-    margin-right: 30vw;
-    padding-top: 40vh;
-    font-size: 3rem;
 }
 
 #date {
